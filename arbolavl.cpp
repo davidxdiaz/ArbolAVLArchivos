@@ -19,7 +19,7 @@ void ArbolAVL::add(int v,int nr)
 {
     Nodo * n=new Nodo(v,nr);
     agg(n);
-     cant++;
+    cant++;
 }
 
 void ArbolAVL::agg(Nodo * n)
@@ -27,16 +27,16 @@ void ArbolAVL::agg(Nodo * n)
     if(raiz==0)
         raiz=n;
     else
-        insertar(raiz,n);
+        raiz=insertar(raiz,n);
 }
 
 //Agregar Recursivamente
 Nodo * ArbolAVL::insertar(Nodo *&sraiz,Nodo * n)
 {
     Nodo * nuevoPadre=sraiz;
-    if(n->valor<sraiz->valor)
+    if(n->valor < sraiz->valor)
     {
-       if(sraiz->izquierdo!=0)
+       if(sraiz->izquierdo==0)
             sraiz->izquierdo=n;
        else
        {
@@ -53,7 +53,7 @@ Nodo * ArbolAVL::insertar(Nodo *&sraiz,Nodo * n)
     }
     else if(n->valor>sraiz->valor)
     {
-        if(sraiz->derecho!=0)
+        if(sraiz->derecho==0)
             sraiz->derecho=n;
         else
         {
@@ -222,7 +222,7 @@ void ArbolAVL::cargar()
     cant=tam/22;
 }
 
-void ArbolAVL::preOrden(Nodo *&r)
+void ArbolAVL::preOrden(Nodo *r)
 {
     if(r==0) return;
     cout << r->valor<<endl;

@@ -25,7 +25,7 @@ class ArbolAVL
         void cargar();
         void escribir();
         int cant;
-        void preOrden(Nodo *&r);
+        void preOrden(Nodo *r);
 
 };
 

@@ -10,8 +10,9 @@
 1503718728 c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\datafile.h
 	<stdio.h>
 
-1446667744 source:c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\main.cpp
+1503723838 source:c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\main.cpp
 	<iostream>
+	"arbolavl.h"
 
 1503719028 source:c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\nodo.cpp
 	"nodo.h"
@@ -21,7 +22,7 @@
 
 1503717719 c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\nodo.h
 
-1503723409 source:c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\arbolavl.cpp
+1503724797 source:c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\arbolavl.cpp
 	"arbolavl.h"
 	"nodo.h"
 	"datafile.h"
@@ -29,7 +30,7 @@
 	<string.h>
 	<iostream>
 
-1503723401 c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\arbolavl.h
+1503724405 c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\arbolavl.h
 	"nodo.h"
 	"datafile.h"
 
