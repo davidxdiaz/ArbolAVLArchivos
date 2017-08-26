@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1503718821 source:c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\datafile.cpp
+	"datafile.h"
+	<io.h>
+	<stdlib.h>
+	<cstring>
+	<stdio.h>
+	<iostream>
+
+1503718728 c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\datafile.h
+	<stdio.h>
+
+1446667744 source:c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\main.cpp
+	<iostream>
+
+1503719028 source:c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\nodo.cpp
+	"nodo.h"
+	<stdio.h>
+	<string.h>
+	<iostream>
+
+1503717719 c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\nodo.h
+
+1503718727 source:c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\arbolavl.cpp
+	"arbolavl.h"
+	"nodo.h"
+	"datafile.h"
+	<stdio.h>
+	<string.h>
+	<iostream>
+
+1503718812 c:\users\david\documents\clases\ii año\iii periodo\estructura de datos 2\arbolavlarchivos\arbolavl.h
+	"nodo.h"
+	"datafile.h"
+
