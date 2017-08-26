@@ -8,8 +8,9 @@ class ArbolAVL
         ArbolAVL(DataFile * archivo);
         DataFile * archivo;
         Nodo * raiz;
-        void add(Nodo * n);
-        void insertar(Nodo *&sraiz,Nodo * n);
+        void add(int v,int nr);
+        void agg(Nodo *n);
+        Nodo * insertar(Nodo *&sraiz,Nodo * n);
         Nodo * buscarAux(int v,Nodo *&r);
         Nodo * buscar(int v);
         int obtenerFE(Nodo * n);

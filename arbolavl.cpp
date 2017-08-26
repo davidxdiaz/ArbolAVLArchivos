@@ -15,23 +15,76 @@ ArbolAVL::ArbolAVL(DataFile * a)
 }
 
 //Agregar
-void ArbolAVL::add(Nodo * n)
+void ArbolAVL::add(int v,int nr)
 {
-    insertar(raiz,n);
-    cant++;
+    Nodo * n=new Nodo(v,nr);
+    agg(n);
+     cant++;
+}
+
+void ArbolAVL::agg(Nodo * n)
+{
+    if(raiz==0)
+        raiz=n;
+    else
+        insertar(raiz,n);
 }
 
 //Agregar Recursivamente
-void ArbolAVL::insertar(Nodo *&sraiz,Nodo * n)
+Nodo * ArbolAVL::insertar(Nodo *&sraiz,Nodo * n)
 {
-    if(sraiz==0)
+    Nodo * nuevoPadre=sraiz;
+    if(n->valor<sraiz->valor)
     {
-        sraiz=n;
-        return;
+       if(sraiz->izquierdo!=0)
+            sraiz->izquierdo=n;
+       else
+       {
+            sraiz->izquierdo=insertar(sraiz->izquierdo,n);
+            if((obtenerFE(sraiz->izquierdo))-obtenerFE(sraiz->derecho) ==2)
+            {
+                if(n->valor<sraiz->izquierdo->valor)
+                    nuevoPadre=rotacionDerecha(sraiz);
+                else
+                    nuevoPadre=rotacionDDerecha(sraiz);
+            }
+       }
+
     }
-    if(sraiz->valor > n->valor)
-        insertar(sraiz->izquierdo,n);
-    insertar(sraiz->derecho,n);
+    else if(n->valor>sraiz->valor)
+    {
+        if(sraiz->derecho!=0)
+            sraiz->derecho=n;
+        else
+        {
+             sraiz->derecho=insertar(sraiz->derecho,n);
+             if((obtenerFE(sraiz->derecho))-obtenerFE(sraiz->izquierdo) ==2)
+             {
+                 if(n->valor>sraiz->derecho->valor)
+                     nuevoPadre=rotacionIzquierda(sraiz);
+                 else
+                     nuevoPadre=rotacionDIzquierda(sraiz);
+             }
+        }
+    }
+    else
+        cout<<"Nodo Duplicado"<<endl;
+    //Actualizar altura
+    if(sraiz->izquierdo==0 && sraiz->derecho!=0)
+    {
+        sraiz->fe=sraiz->derecho->fe+1;
+    }
+    else if( sraiz->derecho==0 &&sraiz->izquierdo!=0 )
+    {
+        sraiz->fe=sraiz->izquierdo->fe+1;
+    }
+    else
+    {
+        int a=obtenerFE(sraiz->izquierdo);
+        int b=obtenerFE(sraiz->derecho);
+        sraiz->fe= a >b ? a+1:b+1;
+    }
+    return nuevoPadre;
 }
 
 //Buscar
@@ -97,12 +150,18 @@ Nodo* ArbolAVL::rotacionDerecha(Nodo *r)
 
 Nodo * ArbolAVL::rotacionDIzquierda(Nodo *r)
 {
-
+    Nodo * tmp;
+    r->izquierdo=rotacionDerecha(r->derecho);
+    tmp=rotacionIzquierda(r);
+    return tmp;
 }
 
 Nodo * ArbolAVL::rotacionDDerecha(Nodo *r)
 {
-
+    Nodo * tmp;
+    r->izquierdo=rotacionIzquierda(r->izquierdo);
+    tmp=rotacionDerecha(r);
+    return tmp;
 }
 
 char * ArbolAVL::toChar()
@@ -127,7 +186,7 @@ void ArbolAVL::initFromChar(char * data)
 {
     int pos=0;
     Nodo * r=initAux(data,pos);
-    add(r);
+    agg(r);
 }
 
 Nodo * ArbolAVL::initAux(char * data,int pos)
@@ -157,8 +216,10 @@ void ArbolAVL::escribir()
 
 void ArbolAVL::cargar()
 {
-    char * data=archivo->leer(0,archivo->getTam());
+    int tam=archivo->getTam();
+    char * data=archivo->leer(0,tam);
     initFromChar(data);
+    cant=tam/22;
 }
 
 void ArbolAVL::preOrden(Nodo *&r)
